@@ -1,0 +1,3 @@
+[submodule "oauthconsumer"]
+	path = oauthconsumer
+	url = git://github.com/pcperini/oauthconsumer.git
