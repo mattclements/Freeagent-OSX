@@ -1,16 +1,18 @@
 #import "ApplicationDelegate.h"
 #import "URLParser.h"
+#import "NSString+Base64.h"
 
 static NSString* const apiURL = @"https://api.sandbox.freeagent.com/v2";
 static NSString* const apiType = @"freeagentService";
-static NSString* const apiKey = @"X7OI4l5_sRozUtlgp1zVTg";
-static NSString* const apiSecret = @"cz90veji5UpEQaMopCb6LQ";
+static NSString* const apiKey = @"rXgDnfe4r9CYAOJ8QADjdA";
+static NSString* const apiSecret = @"FBUao5_jf74vh5LKn9I-kQ";
 
 @implementation ApplicationDelegate
 
 @synthesize panelController = _panelController;
 @synthesize menubarController = _menubarController;
 @synthesize requestToken;
+@synthesize showAuth;
 
 #pragma mark -
 
@@ -40,26 +42,57 @@ void *kContextActivePanel = &kContextActivePanel;
      *  forAccountType is required by Spec, but ignored by Freeagent
      */
     
+    NSLog(@"%@/approve_app?client_id=%@&response_type=code",apiURL,apiKey);
+    
+    
+    //[[NSWorkspace sharedWorkspace] openURL:url];
+    
     ApplicationDelegate *appDelegate = [[ApplicationDelegate alloc] init];
-    [appDelegate startAuthorisation];
+    [appDelegate showAuthScreen];
+    
+    
 }
 
-- (void)startAuthorisation {
+- (void)showAuthScreen {
+    NSLog(@"Showing Auth Screen");
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/approve_app?client_id=%@&response_type=code",apiURL,apiKey]];
+    
+    showAuth = [[ShowAuth alloc] init];
+    [showAuth loadWindow];
+    [showAuth showWindow:[showAuth window]];
+    [showAuth loadWebPage:url];
+}
+
+- (void)startAuthorisation:(NSString *) code {
     
     OAConsumer *consumer = [[OAConsumer alloc] initWithKey:apiKey
                                                     secret:apiSecret];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/approve_app",apiURL]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/token_endpoint",apiURL]];
+    
+    OAToken * token = [[OAToken alloc] initWithKey:apiKey secret:apiSecret];
     
     OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
-                                                                   consumer:consumer
+                                                                   consumer:nil
                                                                       token:nil   // we don't have a Token yet
-                                                                      realm:nil   // our service provider doesn't specify a realm
-                                                          signatureProvider:nil]; // use the default method, HMAC-SHA1
+                                                                      realm:apiType
+                                                          signatureProvider:nil]; // use the default method, HMAC-SHA
     
+    [request prepare];
     [request setHTTPMethod:@"POST"];
     
+    NSString *requestString = [NSString stringWithFormat:@"grant_type=authorization_code&code=%@",code];
+    
+    NSData *postData = [NSData dataWithBytes:[requestString UTF8String] length:[requestString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setHTTPBody:postData];
+    [request setValue:[NSString stringWithFormat:@"%ld", [postData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"Basic %@",[[NSString stringWithFormat:@"%@:%@",apiKey,apiSecret] base64EncodedString]] forHTTPHeaderField:@"Authorization"];
+    
     OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+    
+    NSLog(@"%@",request.allHTTPHeaderFields);
     
     [fetcher fetchDataWithRequest:request
                          delegate:self
@@ -73,10 +106,14 @@ void *kContextActivePanel = &kContextActivePanel;
                                                        encoding:NSUTF8StringEncoding];
         requestToken = [[OAToken alloc] initWithHTTPResponseBody:responseBody];
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/token_endpoint",apiURL]];
-        [[NSWorkspace sharedWorkspace] openURL:url];
         NSLog(@"Registered Token");
     }
+NSLog(@"Succeeded: %@",[[NSString alloc] initWithData:data
+                                              encoding:NSUTF8StringEncoding]);
+}
+
+- (void)requestTokenTicket:(OAServiceTicket *)ticket didFailWithError:(NSError *)error {
+    NSLog(@"Failed with Error: %@",error.description);
 }
 
 #pragma mark - NSApplicationDelegate
@@ -102,10 +139,8 @@ void *kContextActivePanel = &kContextActivePanel;
     
     if(code!=nil && code!=@"")
     {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:code forKey:@"code"];
-        [defaults synchronize];
-        NSLog(@"Data saved");
+        [[showAuth window] setTitle:@"ABC123"];
+        [self startAuthorisation:code];
     }
     
     // do something with the URL string

@@ -34,6 +34,14 @@
 		C9A075BA1634318600449ACE /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A075A41634318600449ACE /* OAToken.m */; };
 		C9A075BB1634318600449ACE /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A075A61634318600449ACE /* OATokenManager.m */; };
 		C9A075BC1634318600449ACE /* README in Resources */ = {isa = PBXBuildFile; fileRef = C9A075A81634318600449ACE /* README */; };
+		C9A075DA16345B9800449ACE /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A075C416345B9700449ACE /* NSData+Base64.m */; };
+		C9A075DB16345B9800449ACE /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A075C616345B9700449ACE /* NSString+Base64.m */; };
+		C9A075DC16345B9800449ACE /* LICENCE.md in Resources */ = {isa = PBXBuildFile; fileRef = C9A075C716345B9700449ACE /* LICENCE.md */; };
+		C9A075DD16345B9800449ACE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C9A075C816345B9700449ACE /* README.md */; };
+		C9A075DE16345B9800449ACE /* RELEASE NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = C9A075C916345B9700449ACE /* RELEASE NOTES.md */; };
+		C9A075ED16346A0100449ACE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A075EC16346A0100449ACE /* WebKit.framework */; };
+		C9A075F11634716D00449ACE /* ShowAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A075EF1634716D00449ACE /* ShowAuth.m */; };
+		C9A075F21634716D00449ACE /* ShowAuth.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A075F01634716D00449ACE /* ShowAuth.xib */; };
 		DD4F7C0913C30F9F00825C6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F7C0813C30F9F00825C6E /* Cocoa.framework */; };
 		DD4F7C1513C30F9F00825C6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1413C30F9F00825C6E /* main.m */; };
 		DD4F7C1C13C30F9F00825C6E /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1B13C30F9F00825C6E /* ApplicationDelegate.m */; };
@@ -108,6 +116,17 @@
 		C9A075A61634318600449ACE /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		C9A075A71634318600449ACE /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
 		C9A075A81634318600449ACE /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		C9A075C316345B9700449ACE /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		C9A075C416345B9700449ACE /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		C9A075C516345B9700449ACE /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		C9A075C616345B9700449ACE /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		C9A075C716345B9700449ACE /* LICENCE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.md; sourceTree = "<group>"; };
+		C9A075C816345B9700449ACE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		C9A075C916345B9700449ACE /* RELEASE NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "RELEASE NOTES.md"; sourceTree = "<group>"; };
+		C9A075EC16346A0100449ACE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C9A075EE1634716D00449ACE /* ShowAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAuth.h; sourceTree = "<group>"; };
+		C9A075EF1634716D00449ACE /* ShowAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowAuth.m; sourceTree = "<group>"; };
+		C9A075F01634716D00449ACE /* ShowAuth.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowAuth.xib; sourceTree = "<group>"; };
 		DD4F7C0413C30F9F00825C6E /* Freeagent OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Freeagent OSX.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F7C0813C30F9F00825C6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DD4F7C0B13C30F9F00825C6E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -137,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A075ED16346A0100449ACE /* WebKit.framework in Frameworks */,
 				C9A0757D163430B300449ACE /* Security.framework in Frameworks */,
 				C9A0757B163430AA00449ACE /* libxml2.dylib in Frameworks */,
 				DD4F7C0913C30F9F00825C6E /* Cocoa.framework in Frameworks */,
@@ -209,9 +229,32 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		C9A075C116345B9700449ACE /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				C9A075C216345B9700449ACE /* Base64 */,
+				C9A075C716345B9700449ACE /* LICENCE.md */,
+				C9A075C816345B9700449ACE /* README.md */,
+				C9A075C916345B9700449ACE /* RELEASE NOTES.md */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
+		C9A075C216345B9700449ACE /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				C9A075C316345B9700449ACE /* NSData+Base64.h */,
+				C9A075C416345B9700449ACE /* NSData+Base64.m */,
+				C9A075C516345B9700449ACE /* NSString+Base64.h */,
+				C9A075C616345B9700449ACE /* NSString+Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
 		DD4F7BF913C30F9F00825C6E = {
 			isa = PBXGroup;
 			children = (
+				C9A075EC16346A0100449ACE /* WebKit.framework */,
 				C9A0757C163430B300449ACE /* Security.framework */,
 				C9A0757A163430AA00449ACE /* libxml2.dylib */,
 				C90787631634076A00800889 /* Freeagent OSX.entitlements */,
@@ -221,6 +264,7 @@
 				DD4F7C0513C30F9F00825C6E /* Products */,
 				DD4F7C1013C30F9F00825C6E /* Freeagent OSX-Info.plist */,
 				C9A0757E1634318600449ACE /* oauthconsumer */,
+				C9A075C116345B9700449ACE /* Base64 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +293,9 @@
 				DD4F7C2613C311DF00825C6E /* Controllers */,
 				DD4F7C3913C317EC00825C6E /* Views */,
 				DD4F7C0F13C30F9F00825C6E /* Supporting Files */,
+				C9A075EE1634716D00449ACE /* ShowAuth.h */,
+				C9A075EF1634716D00449ACE /* ShowAuth.m */,
+				C9A075F01634716D00449ACE /* ShowAuth.xib */,
 			);
 			name = Sources;
 			path = Popup;
@@ -379,6 +426,10 @@
 				C90787511633FDA300800889 /* icon-highlighted.png in Resources */,
 				C9A075B91634318600449ACE /* OATestServer.rb in Resources */,
 				C9A075BC1634318600449ACE /* README in Resources */,
+				C9A075DC16345B9800449ACE /* LICENCE.md in Resources */,
+				C9A075DD16345B9800449ACE /* README.md in Resources */,
+				C9A075DE16345B9800449ACE /* RELEASE NOTES.md in Resources */,
+				C9A075F21634716D00449ACE /* ShowAuth.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +466,9 @@
 				C9A075B81634318600449ACE /* OAServiceTicket.m in Sources */,
 				C9A075BA1634318600449ACE /* OAToken.m in Sources */,
 				C9A075BB1634318600449ACE /* OATokenManager.m in Sources */,
+				C9A075DA16345B9800449ACE /* NSData+Base64.m in Sources */,
+				C9A075DB16345B9800449ACE /* NSString+Base64.m in Sources */,
+				C9A075F11634716D00449ACE /* ShowAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

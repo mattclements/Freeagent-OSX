@@ -1,3 +1,6 @@
 [submodule "oauthconsumer"]
 	path = oauthconsumer
 	url = git://github.com/pcperini/oauthconsumer.git
+[submodule "Base64"]
+	path = Base64
+	url = git://github.com/nicklockwood/Base64.git
