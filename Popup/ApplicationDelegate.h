@@ -1,5 +1,6 @@
 #import "MenubarController.h"
-#import <OAuthConsumer/OAuthConsumer.h>
+#include "sys/types.h"
+#include "OAuthConsumer.h"
 #import "PanelController.h"
 
 @interface ApplicationDelegate : NSObject <NSApplicationDelegate, PanelControllerDelegate> {
