@@ -137,7 +137,7 @@ NSLog(@"Succeeded: %@",[[NSString alloc] initWithData:data
     NSString *code = [parser valueForVariable:@"code"];
     NSLog(@"Code: %@",code);
     
-    if(code!=nil && code!=@"")
+    if(code!=nil && ![code isEqual:@""])
     {
         [[showAuth window] setTitle:@"ABC123"];
         [self startAuthorisation:code];
